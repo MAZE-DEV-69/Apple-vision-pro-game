@@ -1,0 +1,11 @@
+func moveBlockDown() {
+    guard let block = currentBlock else { return }
+    
+    // Move the block downward in the AR space
+    block.position.y -= 0.1
+    
+    // Check for collision with the ground or other blocks
+    if block.position.y <= -0.5 {
+        placeBlock() // Place the block in the grid and spawn a new one
+    }
+}
