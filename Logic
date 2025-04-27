@@ -1,0 +1,16 @@
+var score = 0
+
+func checkForFullLine() {
+    // Check if any row is full
+    for i in 0..<grid.count {
+        if !grid[i].contains(false) {
+            clearLine(at: i)
+            score += 100 // Add score when clearing a line
+        }
+    }
+}
+
+func gameOver() {
+    if grid[0].contains(true) {
+        gameTimer?.invalidate() // Stop the game
+        print("Game Over! Final Score:
